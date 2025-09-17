@@ -107,29 +107,6 @@ Te lo explico con **muñecas rusas** 🪆 (esas que van una dentro de otra):
 - Automatizar tareas aburridas
 - Resolver problemas complicados
 
-## 🎯 **Ejercicios prácticos**
-
-### **Ejercicio 1: Detective de IA** 🕵️
-Busca 3 ejemplos de IA que uses HOY:
-- [ ] En tu teléfono
-- [ ] En tu computadora
-- [ ] En Internet
-
-### **Ejercicio 2: ¿IA o no IA?** ✅❌
-¿Cuáles de estos son IA?
-- [ ] Una calculadora normal que suma 2+2
-- [ ] Siri entendiendo cuando dices "llama a mamá"
-- [ ] Un semáforo que siempre cambia cada 30 segundos
-- [ ] Netflix recomendándote series
-
-### **Ejercicio 3: Diseña tu IA** 💡
-Si pudieras crear cualquier sistema de IA, ¿qué problema resolvería?
-- ¿Optimizaría procesos de desarrollo?
-- ¿Automatizaría tareas repetitivas?
-- ¿Mejoraría la experiencia de usuario?
-
-*Describe tu propuesta:* ____________________
-
 ## 🚀 **¿Qué sigue?**
 
 Perfecto. Ya comprendes los conceptos fundamentales de IA. El siguiente paso es aprender a interactuar con sistemas de IA:
