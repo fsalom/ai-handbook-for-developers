@@ -57,7 +57,7 @@ Crea widgets Flutter siguiendo este patrón:
 EJEMPLO 1:
 Input: "botón primario"
 Output:
-```dart
+
 ElevatedButton(
   onPressed: onPressed,
   style: ElevatedButton.styleFrom(
@@ -65,12 +65,11 @@ ElevatedButton(
   ),
   child: Text(text),
 )
-```
 
 EJEMPLO 2:
 Input: "botón secundario"
 Output:
-```dart
+
 OutlinedButton(
   onPressed: onPressed,
   style: OutlinedButton.styleFrom(
@@ -78,7 +77,7 @@ OutlinedButton(
   ),
   child: Text(text),
 )
-```
+
 
 Ahora crea: "botón de peligro"
 ```
@@ -313,14 +312,13 @@ STACK: Flutter 3.7, Provider, cached_network_image
 DISPOSITIVOS: Funciona bien en flagship, mal en gama media
 
 CÓDIGO ACTUAL:
-```dart
 ListView.builder(
   itemCount: items.length,
   itemBuilder: (context, index) {
     return ExpensiveWidget(item: items[index]);
   },
 )
-```
+
 
 ¿Cuál es la mejor estrategia para optimizar?
 Prioriza soluciones por impacto vs esfuerzo de implementación.
@@ -361,7 +359,7 @@ Sigue las mejores prácticas de DRF y RESTful design.
 Tengo código PHP legacy que necesito refactorizar a Laravel:
 
 CÓDIGO LEGACY (ejemplo):
-```php
+
 // user_management.php
 $conn = mysqli_connect($host, $user, $pass, $db);
 $sql = "SELECT * FROM users WHERE active = 1";
@@ -369,7 +367,7 @@ $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_array($result)) {
     echo "<tr><td>".$row['name']."</td></tr>";
 }
-```
+
 
 OBJETIVOS:
 - Migrar a Laravel 10
