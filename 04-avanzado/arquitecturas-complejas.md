@@ -4,12 +4,12 @@
 
 ## 🎯 ¿Qué aprenderás aquí?
 
-- ✅ **Sistemas de agentes:** Cuándo y cómo crear agents que colaboran
-- ✅ **Multi-modal integration:** Text + Image + Audio + Video
-- ✅ **Model orchestration:** Combinar múltiples LLMs estratégicamente
-- ✅ **Fine-tuning decisions:** Cuándo vale la pena vs alternativas
-- ✅ **Edge AI deployment:** LLMs locales y híbridos
-- ✅ **Arquitecturas escalables:** Patterns para millions de usuarios
+- ✅ **Sistemas de agentes:** Cuándo y cómo crear agentes que colaboran
+- ✅ **Integración multi-modal:** Texto + Imagen + Audio + Video
+- ✅ **Orquestación de modelos:** Combinar múltiples LLMs estratégicamente
+- ✅ **Decisiones de fine-tuning:** Cuándo vale la pena vs alternativas
+- ✅ **Despliegue de IA en el borde:** LLMs locales y híbridos
+- ✅ **Arquitecturas escalables:** Patrones para millones de usuarios
 
 ## 🤖 **Sistemas de Agentes: Más que la suma de sus partes**
 
@@ -17,77 +17,77 @@
 
 **❌ Un solo LLM cuando:**
 - Tareas simples y directas
-- Context window suficiente
-- No requiere tools externos
+- Ventana de contexto suficiente
+- No requiere herramientas externas
 - Latencia crítica
 
 **✅ Sistema de agentes cuando:**
-- **Tareas complejas multi-step:** Research + Analysis + Writing
-- **Múltiples especializations:** Code + Design + Testing
-- **Long-running processes:** Monitoring + Response
-- **Tool orchestration:** APIs + DBs + External systems
+- **Tareas complejas multi-paso:** Investigación + Análisis + Escritura
+- **Múltiples especializaciones:** Código + Diseño + Pruebas
+- **Procesos de larga duración:** Monitoreo + Respuesta
+- **Orquestación de herramientas:** APIs + BDs + Sistemas externos
 
 ### **Patrones de arquitectura de agentes:**
 
-**🔹 Patrón 1: Chain of Specialists**
+**🔹 Patrón 1: Cadena de Especialistas**
 ```
-Input → Agent1 (Analyze) → Agent2 (Plan) → Agent3 (Execute) → Output
+Entrada → Agente1 (Analizar) → Agente2 (Planificar) → Agente3 (Ejecutar) → Salida
 ```
-**Cuándo usar:** Workflow linear con expertise específica
-**Ejemplo:** Code review → Security analysis → Performance optimization
+**Cuándo usar:** Flujo de trabajo lineal con experiencia específica
+**Ejemplo:** Revisión de código → Análisis de seguridad → Optimización de rendimiento
 
-**🔹 Patrón 2: Hierarchical Agents**
+**🔹 Patrón 2: Agentes Jerárquicos**
 ```
-                    Supervisor Agent
+                    Agente Supervisor
                           |
         ┌─────────────────┼─────────────────┐
-   Worker A          Worker B          Worker C
-   (Research)        (Analysis)        (Writing)
+   Trabajador A      Trabajador B      Trabajador C
+   (Investigación)   (Análisis)        (Escritura)
 ```
-**Cuándo usar:** Tasks que requieren coordination
-**Ejemplo:** Content creation con research, analysis y writing
+**Cuándo usar:** Tareas que requieren coordinación
+**Ejemplo:** Creación de contenido con investigación, análisis y escritura
 
-**🔹 Patrón 3: Collaborative Swarm**
+**🔹 Patrón 3: Enjambre Colaborativo**
 ```
-Agent A ←→ Agent B ←→ Agent C
+Agente A ←→ Agente B ←→ Agente C
    ↑          ↑          ↑
    └──────────┼──────────┘
-         Shared Memory
+       Memoria Compartida
 ```
-**Cuándo usar:** Problem-solving colaborativo
-**Ejemplo:** Debugging complejo donde cada agent aporta perspective
+**Cuándo usar:** Resolución colaborativa de problemas
+**Ejemplo:** Depuración compleja donde cada agente aporta perspectiva
 
-### **Arquitectura real: Customer Support Intelligent System**
+### **Arquitectura real: Sistema Inteligente de Soporte al Cliente**
 
-**Problema:** Customer support que escale sin perder calidad
+**Problema:** Soporte al cliente que escale sin perder calidad
 **Solución:** Sistema de agentes especializado
 
 ```
-Customer Query
+Consulta del Cliente
      ↓
-Routing Agent (classifies intent)
+Agente de Enrutamiento (clasifica intención)
      ↓
-     ├─ Technical Support Agent
-     ├─ Billing Agent
-     ├─ Product Expert Agent
-     └─ Escalation Agent
+     ├─ Agente de Soporte Técnico
+     ├─ Agente de Facturación
+     ├─ Agente Experto en Producto
+     └─ Agente de Escalamiento
      ↓
-Response Synthesis Agent
+Agente de Síntesis de Respuesta
      ↓
-Quality Assurance Agent
+Agente de Aseguramiento de Calidad
      ↓
-Customer Response
+Respuesta al Cliente
 ```
 
 **Beneficios medidos:**
-- 85% queries resolved sin human intervention
-- 60% reduction en resolution time
-- 40% improvement en customer satisfaction
-- 70% reduction en support costs
+- 85% consultas resueltas sin intervención humana
+- 60% reducción en tiempo de resolución
+- 40% mejora en satisfacción del cliente
+- 70% reducción en costos de soporte
 
-### **Memory systems para agentes:**
+### **Sistemas de memoria para agentes:**
 
-**🧠 Shared Memory Architecture:**
+**🧠 Arquitectura de Memoria Compartida:**
 ```python
 class AgentMemorySystem:
     def __init__(self):
@@ -96,7 +96,7 @@ class AgentMemorySystem:
         self.working_memory = {}  # Current task context
 
     def share_context(self, from_agent, to_agent, context):
-        """Permite agents compartir context relevante"""
+        """Permite a agentes compartir contexto relevante"""
         filtered_context = self.filter_relevant_context(context, to_agent)
         self.working_memory[to_agent] = filtered_context
 
@@ -106,39 +106,39 @@ class AgentMemorySystem:
             self.long_term.store(interaction_data['pattern'])
 ```
 
-## 🎭 **Multi-modal Integration: Más allá del texto**
+## 🎭 **Integración Multi-modal: Más allá del texto**
 
 ### **El futuro es multi-modal:**
 
-**Limitaciones de text-only:**
-- No puede analizar images/videos
-- Miss información visual crítica
-- Limited context para physical world
+**Limitaciones de solo texto:**
+- No puede analizar imágenes/videos
+- Pierde información visual crítica
+- Contexto limitado para el mundo físico
 
 **Ventajas de multi-modal:**
-- **Richer context:** Image + text description
-- **Better understanding:** Visual + verbal information
-- **New use cases:** Image analysis, video processing
-- **Human-like interaction:** Como humans procesan información
+- **Contexto más rico:** Imagen + descripción de texto
+- **Mejor comprensión:** Información visual + verbal
+- **Nuevos casos de uso:** Análisis de imágenes, procesamiento de video
+- **Interacción humana:** Como los humanos procesan información
 
 ### **Casos de uso multi-modal por industria:**
 
-**🏥 Healthcare:**
-- **Input:** Medical images + patient history + symptoms
-- **Processing:** Visual analysis + text correlation
-- **Output:** Diagnosis suggestions + confidence levels
+**🏥 Salud:**
+- **Entrada:** Imágenes médicas + historial del paciente + síntomas
+- **Procesamiento:** Análisis visual + correlación de texto
+- **Salida:** Sugerencias de diagnóstico + niveles de confianza
 
-**🏪 E-commerce:**
-- **Input:** Product photos + descriptions + user reviews
-- **Processing:** Visual feature extraction + text sentiment
-- **Output:** Personalized recommendations + visual search
+**🏪 Comercio electrónico:**
+- **Entrada:** Fotos de productos + descripciones + reseñas de usuarios
+- **Procesamiento:** Extracción de características visuales + sentimiento de texto
+- **Salida:** Recomendaciones personalizadas + búsqueda visual
 
-**🏭 Manufacturing:**
-- **Input:** Assembly line videos + sensor data + maintenance logs
-- **Processing:** Video anomaly detection + text pattern analysis
-- **Output:** Predictive maintenance alerts + quality scores
+**🏭 Manufactura:**
+- **Entrada:** Videos de línea de ensamblaje + datos de sensores + registros de mantenimiento
+- **Procesamiento:** Detección de anomalías en video + análisis de patrones de texto
+- **Salida:** Alertas de mantenimiento predictivo + puntuaciones de calidad
 
-### **Architecture pattern: Multi-modal RAG**
+### **Patrón de arquitectura: RAG Multi-modal**
 
 ```
 User Query (text/image/audio)

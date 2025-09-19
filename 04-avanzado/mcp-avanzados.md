@@ -4,27 +4,27 @@
 
 ## 🎯 ¿Qué aprenderás aquí?
 
-- ✅ **MCPs custom:** Cuándo y cómo construir para tu stack específico
-- ✅ **Seguridad avanzada:** Authentication, authorization, rate limiting
-- ✅ **Performance optimization:** Caching, connection pooling, async processing
-- ✅ **Testing strategies:** Cómo testear MCPs de manera efectiva
-- ✅ **Deployment patterns:** CI/CD, monitoring, scaling
+- ✅ **MCPs personalizados:** Cuándo y cómo construir para tu stack específico
+- ✅ **Seguridad avanzada:** Autenticación, autorización, limitación de velocidad
+- ✅ **Optimización de rendimiento:** Caché, agrupación de conexiones, procesamiento asíncrono
+- ✅ **Estrategias de pruebas:** Cómo probar MCPs de manera efectiva
+- ✅ **Patrones de despliegue:** CI/CD, monitoreo, escalamiento
 - ✅ **Ecosistemas MCP:** Orquestación de múltiples MCPs
 
-## 🔧 **MCPs Custom: Cuándo vale la inversión**
+## 🔧 **MCPs Personalizados: Cuándo vale la inversión**
 
-### **Decision matrix: Build vs Buy vs Adapt**
+### **Matriz de decisión: Construir vs Comprar vs Adaptar**
 
-| **Factor** | **Build Custom** | **Use Existing** | **Adapt Existing** |
-|------------|------------------|------------------|-------------------|
-| **Tool popularity** | Proprietary/niche | Widely used | Popular but customized |
-| **Business logic** | Complex/unique | Standard | Some customization |
-| **Development time** | 2-8 weeks | 1 day | 1-2 weeks |
-| **Maintenance** | Full ownership | Community | Shared |
-| **Competitive advantage** | High | None | Medium |
-| **Team expertise** | High | Any | Medium |
+| **Factor** | **Construir Personalizado** | **Usar Existente** | **Adaptar Existente** |
+|------------|---------------------------|-------------------|---------------------|
+| **Popularidad de herramienta** | Propietaria/nicho | Ampliamente usada | Popular pero personalizada |
+| **Lógica de negocio** | Compleja/única | Estándar | Alguna personalización |
+| **Tiempo de desarrollo** | 2-8 semanas | 1 día | 1-2 semanas |
+| **Mantenimiento** | Propiedad completa | Comunidad | Compartido |
+| **Ventaja competitiva** | Alta | Ninguna | Media |
+| **Experiencia del equipo** | Alta | Cualquiera | Media |
 
-### **ROI calculation para custom MCPs:**
+### **Cálculo de ROI para MCPs personalizados:**
 
 ```python
 def calculate_mcp_roi(
@@ -52,30 +52,30 @@ def calculate_mcp_roi(
     }
 ```
 
-### **Casos de uso para MCPs custom:**
+### **Casos de uso para MCPs personalizados:**
 
-**🟢 High ROI scenarios:**
-- **Internal tools:** JIRA customizations, internal APIs
-- **Proprietary systems:** Company-specific databases, legacy systems
-- **Workflow automation:** Multi-step processes únicos de tu empresa
-- **Compliance requirements:** Industry-specific regulations
+**🟢 Escenarios de ROI alto:**
+- **Herramientas internas:** Personalizaciones de JIRA, APIs internos
+- **Sistemas propietarios:** Bases de datos específicas de empresa, sistemas legacy
+- **Automatización de flujos:** Procesos multi-paso únicos de tu empresa
+- **Requisitos de cumplimiento:** Regulaciones específicas de industria
 
-**🟡 Medium ROI scenarios:**
-- **Popular tools con customizations:** Slack con workflows específicos
-- **API aggregation:** Combining multiple services
-- **Data transformation:** Company-specific data formats
+**🟡 Escenarios de ROI medio:**
+- **Herramientas populares con personalizaciones:** Slack con flujos específicos
+- **Agregación de APIs:** Combinando múltiples servicios
+- **Transformación de datos:** Formatos de datos específicos de empresa
 
-**🔴 Low ROI scenarios:**
-- **Standard tools:** GitHub, AWS (use existing MCPs)
-- **One-time use:** Tools que usas raramente
-- **Simple operations:** Que se pueden hacer manually en <5 min
+**🔴 Escenarios de ROI bajo:**
+- **Herramientas estándar:** GitHub, AWS (usar MCPs existentes)
+- **Uso único:** Herramientas que usas raramente
+- **Operaciones simples:** Que se pueden hacer manualmente en <5 min
 
-## 🏗️ **Arquitectura de MCPs Custom**
+## 🏗️ **Arquitectura de MCPs Personalizados**
 
-### **Pattern 1: Simple Tool Wrapper**
+### **Patrón 1: Envoltorio de Herramienta Simple**
 
-**Cuándo usar:** Tool existing con API simple
-**Ejemplo:** Internal company API
+**Cuándo usar:** Herramienta existente con API simple
+**Ejemplo:** API interno de empresa
 
 ```typescript
 // mcp-company-api/src/server.ts
