@@ -4,41 +4,41 @@
 
 ## 🎯 ¿Qué aprenderás aquí?
 
-- ✅ **Git + IA:** Commits automáticos, code reviews inteligentes
-- ✅ **CI/CD automatizado:** Testing y documentación con IA
-- ✅ **Debugging inteligente:** Análisis de logs y error detection
+- ✅ **Git + IA:** Commits automáticos, revisiones de código inteligentes
+- ✅ **CI/CD automatizado:** Pruebas y documentación con IA
+- ✅ **Depuración inteligente:** Análisis de logs y detección de errores
 - ✅ **Programación en pareja con IA:** Mejores prácticas y optimización de flujos
 - ✅ **Integración con IDE:** Configuraciones que realmente aumentan productividad
 - ✅ **Flujos de equipo:** Cómo implementar IA en equipos de desarrollo
 
-## 🔀 **Git Workflows Inteligentes**
+## 🔀 **Flujos de Git Inteligentes**
 
 ### **El problema del desarrollador moderno:**
 
-**❌ Workflow tradicional:**
+**❌ Flujo tradicional:**
 ```
 1. 🔧 Escribir código
-2. 😴 Commit message genérico: "fix stuff"
-3. 🤔 Push sin context para reviewers
-4. 🔍 Manual code review (20-30 min)
-5. 🔄 Back-and-forth comments
-6. ✅ Merge después de múltiples rounds
+2. 😴 Mensaje de commit genérico: "arreglar cosas"
+3. 🤔 Push sin contexto para revisores
+4. 🔍 Revisión manual de código (20-30 min)
+5. 🔄 Comentarios de ida y vuelta
+6. ✅ Merge después de múltiples rondas
 ```
-**Tiempo total:** 2-4 horas por feature
+**Tiempo total:** 2-4 horas por funcionalidad
 
-**✅ Workflow con IA:**
+**✅ Flujo con IA:**
 ```
 1. 🔧 Escribir código
-2. 🤖 IA genera commit message descriptivo
-3. 🤖 Pre-review automático con suggestions
+2. 🤖 IA genera mensaje de commit descriptivo
+3. 🤖 Pre-revisión automática con sugerencias
 4. 👥 Revisión humana enfocada en lógica de negocio
 5. ✅ Merge con confianza
 ```
-**Tiempo total:** 30-60 minutos por feature
+**Tiempo total:** 30-60 minutos por funcionalidad
 
 ### **Patrón 1: Commits Inteligentes**
 
-**Configuración básica (.gitmessage template):**
+**Configuración básica (plantilla .gitmessage):**
 ```
 # <type>: <subject>
 #
@@ -56,7 +56,7 @@
 # chore: mantenimiento
 ```
 
-**Hook de pre-commit con IA:**
+**Gancho de pre-commit con IA:**
 ```bash
 #!/bin/sh
 # .git/hooks/prepare-commit-msg
@@ -66,7 +66,7 @@ if [ -z "$(cat $1 | grep -v '^#')" ]; then
     # Obtener diff
     DIFF=$(git diff --cached)
 
-    # Usar IA para generar commit message
+    # Usar IA para generar mensaje de commit
     AI_MESSAGE=$(echo "$DIFF" | ai-commit-helper)
 
     # Escribir al archivo de commit
@@ -79,9 +79,9 @@ fi
 - **IA GitMoji:** Añade emojis contextualmente apropiados
 - **Commitizen con IA:** Creación interactiva de commits
 
-### **Patrón 2: Code Review Automatizado**
+### **Patrón 2: Revisión de Código Automatizada**
 
-**Pre-review checklist automatizada:**
+**Lista de verificación de pre-revisión automatizada:**
 
 ```yaml
 # .github/workflows/ai-review.yml
@@ -99,22 +99,22 @@ jobs:
         uses: ai-reviewer-action@v1
         with:
           focus: |
-            - Security vulnerabilities
-            - Performance issues
-            - Code style consistency
-            - Logic errors
-            - Missing tests
+            - Vulnerabilidades de seguridad
+            - Problemas de rendimiento
+            - Consistencia de estilo de código
+            - Errores de lógica
+            - Pruebas faltantes
           output: comment
 ```
 
 **Beneficios medibles:**
-- 70% reducción en tiempo de review
-- 85% de bugs capturados antes de merge
-- 50% menos rounds de feedback
+- 70% reducción en tiempo de revisión
+- 85% de errores capturados antes de merge
+- 50% menos rondas de retroalimentación
 
-### **Patrón 3: Automated Documentation**
+### **Patrón 3: Documentación Automatizada**
 
-**Git hook para documentación automática:**
+**Gancho de Git para documentación automática:**
 
 Cuando detecta cambios en API:
 ```bash
@@ -183,14 +183,14 @@ jobs:
           esac
 ```
 
-### **Test Generation Automático**
+### **Generación Automática de Pruebas**
 
 **Para nuevas funciones:**
 ```python
 # test-generator.py
 def generate_tests_for_function(function_code, context):
     prompt = f"""
-    Genera tests comprehensivos para esta función:
+    Genera pruebas comprehensivas para esta función:
 
     {function_code}
 
@@ -209,9 +209,9 @@ def generate_tests_for_function(function_code, context):
 ```
 
 **Métricas de efectividad:**
-- 90% code coverage automático
-- 60% reducción en tiempo de writing tests
-- 40% más edge cases detectados
+- 90% cobertura de código automática
+- 60% reducción en tiempo de escritura de pruebas
+- 40% más casos límite detectados
 
 ### **Evaluación de Riesgo de Despliegue**
 
@@ -237,7 +237,7 @@ def assess_deployment_risk(changes, metrics):
         return "bajo_riesgo", "Seguro para desplegar"
 ```
 
-## 🐛 **Debugging Inteligente**
+## 🐛 **Depuración Inteligente**
 
 ### **Análisis Automático de Logs**
 
@@ -423,131 +423,132 @@ Flujo de trabajo:
 }
 ```
 
-**Custom AI Assistant Integration:**
+**Integración de Asistente IA Personalizado:**
 ```python
 # ai-assistant-vscode/extension.py
 class AIAssistant:
     def on_file_change(self, file_path, changes):
-        """Triggered cuando el archivo cambia"""
+        """Se activa cuando el archivo cambia"""
         if self.should_provide_suggestion(changes):
             suggestion = self.generate_suggestion(changes, self.get_context())
             self.show_inline_suggestion(suggestion)
 
     def on_save(self, file_path):
-        """Triggered cuando se guarda archivo"""
+        """Se activa cuando se guarda archivo"""
         issues = self.analyze_code_quality(file_path)
         if issues:
             self.show_issues_panel(issues)
 
     def on_debug_start(self, breakpoints):
-        """Triggered cuando empieza debugging session"""
+        """Se activa cuando empieza sesión de depuración"""
         suggestions = self.suggest_debug_strategy(breakpoints)
         self.show_debug_suggestions(suggestions)
 ```
 
 ## 🏢 **Implementación en Equipos**
 
-### **Adoption strategy por fase:**
+### **Estrategia de adopción por fase:**
 
-**Fase 1: Individual adoption (2-4 semanas)**
-- Setup personal de AI tools
-- Experimentation con workflows
-- Medición de productivity gains
+**Fase 1: Adopción individual (2-4 semanas)**
+- Configuración personal de herramientas IA
+- Experimentación con flujos de trabajo
+- Medición de ganancias de productividad
 
-**Fase 2: Team integration (1-2 meses)**
-- Shared AI tools y configurations
-- Standardized prompts y workflows
-- Team training y best practices
+**Fase 2: Integración de equipo (1-2 meses)**
+- Herramientas IA compartidas y configuraciones
+- Prompts y flujos de trabajo estandarizados
+- Entrenamiento de equipo y mejores prácticas
 
-**Fase 3: Organization-wide (3-6 meses)**
-- Custom AI tools para company needs
-- Integration con company systems
-- ROI measurement y optimization
+**Fase 3: A nivel organizacional (3-6 meses)**
+- Herramientas IA personalizadas para necesidades empresariales
+- Integración con sistemas empresariales
+- Medición de ROI y optimización
 
 ### **Métricas para medir impacto:**
 
-| **Métrica** | **Baseline** | **Target con IA** | **Cómo medir** |
-|-------------|--------------|-------------------|----------------|
-| **Time to first commit** | 45 min | 20 min | Git timestamp analysis |
-| **Code review time** | 2-4 hours | 30-60 min | PR lifecycle tracking |
-| **Bug detection rate** | 60% | 85% | Pre-merge vs post-merge bugs |
-| **Documentation coverage** | 40% | 80% | Automated doc analysis |
-| **Developer satisfaction** | 6.5/10 | 8.5/10 | Quarterly surveys |
+| **Métrica** | **Línea base** | **Objetivo con IA** | **Cómo medir** |
+|-------------|----------------|---------------------|----------------|
+| **Tiempo al primer commit** | 45 min | 20 min | Análisis de timestamps de Git |
+| **Tiempo de revisión de código** | 2-4 horas | 30-60 min | Seguimiento de ciclo de vida de PR |
+| **Tasa de detección de errores** | 60% | 85% | Errores pre-merge vs post-merge |
+| **Cobertura de documentación** | 40% | 80% | Análisis automatizado de documentos |
+| **Satisfacción del desarrollador** | 6.5/10 | 8.5/10 | Encuestas trimestrales |
 
 ### **Resistencia común y cómo manejarla:**
 
-**🚫 "IA va a reemplazar developers"**
-- **Respuesta:** IA augments, no reemplaza
-- **Evidencia:** Mostrar cómo IA elimina tedious tasks
-- **Enfoque:** IA libera tiempo para creative problem solving
+**🚫 "IA va a reemplazar desarrolladores"**
+- **Respuesta:** IA aumenta capacidades, no reemplaza
+- **Evidencia:** Mostrar cómo IA elimina tareas tediosas
+- **Enfoque:** IA libera tiempo para resolución creativa de problemas
 
-**🚫 "No confío en AI-generated code"**
-- **Respuesta:** Empezar con AI review, no generation
-- **Progresión:** Code review → Suggestions → Generation
-- **Control:** Human siempre mantiene final decision
+**🚫 "No confío en código generado por IA"**
+- **Respuesta:** Empezar con revisión de IA, no generación
+- **Progresión:** Revisión de código → Sugerencias → Generación
+- **Control:** El humano siempre mantiene la decisión final
 
-**🚫 "Es demasiado complejo de setup"**
-- **Respuesta:** Start simple con tools existentes
-- **Progresión:** GitHub Copilot → Custom integrations
-- **Support:** Pair experienced users con newcomers
+**🚫 "Es demasiado complejo de configurar"**
+- **Respuesta:** Empezar simple con herramientas existentes
+- **Progresión:** GitHub Copilot → Integraciones personalizadas
+- **Soporte:** Emparejar usuarios experimentados con novatos
 
-### **Best practices para teams:**
+### **Mejores prácticas para equipos:**
 
-**🟢 Do's:**
-- Establish clear AI usage guidelines
-- Share effective prompts y workflows
-- Regular training sessions
-- Measure productivity impact
-- Iterate based on feedback
+**🟢 Qué hacer:**
+- Establecer pautas claras de uso de IA
+- Compartir prompts efectivos y flujos de trabajo
+- Sesiones regulares de entrenamiento
+- Medir el impacto en productividad
+- Iterar basándose en retroalimentación
 
-**🔴 Don'ts:**
-- Force adoption without training
-- Ignore security considerations
-- Rely 100% on AI without human oversight
-- Skip change management process
-- Ignore developer concerns
+**🔴 Qué no hacer:**
+- Forzar adopción sin entrenamiento
+- Ignorar consideraciones de seguridad
+- Depender 100% de IA sin supervisión humana
+- Omitir proceso de gestión del cambio
+- Ignorar preocupaciones de desarrolladores
 
 ## 📊 **ROI y Métricas de Productividad**
 
 ### **Cálculo real de ROI:**
 
-**Developer salary:** $100K/year = $50/hour
-**Hours saved per week per developer:** 8 hours
-**Cost of AI tools:** $20/month per developer
+**Salario bruto del desarrollador:** €35K/año
+**Coste de empresa (con SS, vacaciones, etc.):** €45K/año = €22/hora
+**Horas ahorradas por semana por desarrollador:** 8 horas
+**Costo de herramientas IA:** €20/mes por desarrollador
 
-**Monthly ROI calculation:**
-- **Savings:** 8 hours/week × 4 weeks × $50/hour = $1,600
-- **Cost:** $20/month
-- **Net benefit:** $1,580/month per developer
-- **ROI:** 7,900% annually
+**Cálculo de ROI mensual:**
+- **Ahorros:** 8 horas/semana × 4 semanas × €22/hora = €704
+- **Costo:** €20/mes
+- **Beneficio neto:** €684/mes por desarrollador
+- **ROI:** 4,100% anualmente
 
-### **Productivity gains por categoria:**
+### **Ganancias de productividad por categoría:**
 
 | **Actividad** | **Tiempo tradicional** | **Con IA** | **Mejora** |
 |---------------|------------------------|------------|------------|
-| **Code review** | 2-4 hours | 30-60 min | 70% |
-| **Bug investigation** | 1-3 hours | 15-45 min | 75% |
-| **Documentation** | 1-2 hours | 15-30 min | 80% |
-| **Test writing** | 2-4 hours | 45-90 min | 65% |
-| **Refactoring** | 4-8 hours | 1-3 hours | 70% |
+| **Revisión de código** | 2-4 horas | 30-60 min | 70% |
+| **Investigación de errores** | 1-3 horas | 15-45 min | 75% |
+| **Documentación** | 1-2 horas | 15-30 min | 80% |
+| **Escritura de pruebas** | 2-4 horas | 45-90 min | 65% |
+| **Refactorización** | 4-8 horas | 1-3 horas | 70% |
 
 ---
 
 ## 🚀 **¿Qué sigue?**
 
-Has aprendido a integrar IA en workflows de desarrollo. El siguiente paso es construir arquitecturas complejas que aprovechan estas capacidades:
+Has aprendido a integrar IA en flujos de desarrollo. El siguiente paso es construir arquitecturas complejas que aprovechan estas capacidades:
 
 **➡️ [Siguiente: Arquitecturas Complejas](./arquitecturas-complejas.md)**
 
 ---
 
-## 💡 **Key Takeaways**
+## 💡 **Puntos Clave**
 
-- **Git workflows:** 70% time reduction en review process
-- **CI/CD automation:** Smart testing based on change analysis
-- **Debugging:** IA identifica patterns que humans miss
-- **Pair programming:** IA como navigator/research assistant
-- **Team adoption:** Gradual rollout con training y support
-- **ROI measurable:** 7,900% annual return con setup adecuado
+- **Flujos de Git:** 70% reducción de tiempo en proceso de revisión
+- **Automatización CI/CD:** Pruebas inteligentes basadas en análisis de cambios
+- **Depuración:** IA identifica patrones que los humanos pierden
+- **Programación en pareja:** IA como navegador/asistente de investigación
+- **Adopción de equipo:** Despliegue gradual con entrenamiento y soporte
+- **ROI medible:** 4,100% retorno anual con configuración adecuada
 
-*La integración de IA en workflows de desarrollo no es futurista—es necesaria para competir. Los equipos que adoptan estos patterns early tienen ventaja significativa en productivity y code quality.*
+*La integración de IA en flujos de desarrollo no es futurista—es necesaria para competir. Los equipos que adoptan estos patrones temprano tienen ventaja significativa en productividad y calidad de código.*

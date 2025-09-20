@@ -1,6 +1,6 @@
 # 🏗️ Arquitecturas Complejas con IA
 
-> **Sistemas que piensan y se adaptan.** Ya dominas workflows básicos. Ahora vamos a arquitecturas avanzadas: sistemas de agentes que colaboran, aplicaciones multi-modal, fine-tuning estratégico y orquestación de modelos para crear aplicaciones verdaderamente inteligentes.
+> **Sistemas que piensan y se adaptan.** Ya dominas flujos básicos. Ahora vamos a arquitecturas avanzadas: sistemas de agentes que colaboran, aplicaciones multi-modal, fine-tuning estratégico y orquestación de modelos para crear aplicaciones verdaderamente inteligentes.
 
 ## 🎯 ¿Qué aprenderás aquí?
 
@@ -168,17 +168,17 @@ Images → Vision model (GPT-4V, Claude-3)
 Audio → Speech-to-text → Text LLM
 Video → Frame extraction → Vision model + Text LLM
 ```
-**Pros:** Best performance per modality
-**Cons:** Complex orchestration
+**Pros:** Mejor rendimiento por modalidad
+**Cons:** Orquestación compleja
 
-**🟡 Approach 2: Unified multi-modal model**
+**🟡 Enfoque 2: Modelo multi-modal unificado**
 ```
 All inputs → Single multi-modal model → All outputs
 ```
-**Pros:** Simpler architecture
-**Cons:** Limited by model capabilities
+**Pros:** Arquitectura más simple
+**Cons:** Limitado por capacidades del modelo
 
-**🔵 Approach 3: Hybrid orchestration**
+**🔵 Enfoque 3: Orquestación híbrida**
 ```
 Router determines best approach per input type
 ↓
@@ -186,28 +186,28 @@ Specialized processing + Unified understanding
 ↓
 Coordinated response generation
 ```
-**Pros:** Flexibility + performance
-**Cons:** Complexity
+**Pros:** Flexibilidad + rendimiento
+**Cons:** Complejidad
 
-## 🎼 **Model Orchestration: Sinfonia de LLMs**
+## 🎼 **Orquestación de Modelos: Sinfonía de LLMs**
 
 ### **¿Por qué orquestar múltiples modelos?**
 
-**Single model limitations:**
-- One size doesn't fit all tasks
-- Cost inefficiency para simple tasks
-- Vendor lock-in risks
-- Performance bottlenecks
+**Limitaciones de un solo modelo:**
+- Una talla no sirve para todas las tareas
+- Ineficiencia de costos para tareas simples
+- Riesgos de dependencia de proveedor
+- Cuellos de botella de rendimiento
 
-**Multi-model benefits:**
-- **Task-specific optimization:** Best model for each job
-- **Cost optimization:** Cheap models para simple tasks
-- **Resilience:** Fallback options
-- **Performance:** Parallel processing
+**Beneficios de múltiples modelos:**
+- **Optimización específica por tarea:** Mejor modelo para cada trabajo
+- **Optimización de costos:** Modelos baratos para tareas simples
+- **Resistencia:** Opciones de respaldo
+- **Rendimiento:** Procesamiento paralelo
 
-### **Strategies de model orchestration:**
+### **Estrategias de orquestación de modelos:**
 
-**🎯 Strategy 1: Task-based routing**
+**🎯 Estrategia 1: Enrutamiento basado en tareas**
 ```python
 class ModelOrchestrator:
     def route_request(self, request):

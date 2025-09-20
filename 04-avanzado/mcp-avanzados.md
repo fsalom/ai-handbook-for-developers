@@ -1,6 +1,6 @@
 # 🛠️ MCPs Avanzados
 
-> **Conectando IA con tu stack único.** Ya conoces MCPs básicos. Ahora vamos a crear MCPs custom para tus herramientas específicas, implementar seguridad robusta, optimizar performance y crear ecosistemas de MCPs que escalen en producción.
+> **Conectando IA con tu stack único.** Ya conoces MCPs básicos. Ahora vamos a crear MCPs personalizados para tus herramientas específicas, implementar seguridad robusta, optimizar rendimiento y crear ecosistemas de MCPs que escalen en producción.
 
 ## 🎯 ¿Qué aprenderás aquí?
 
@@ -127,10 +127,10 @@ class CompanyAPIMCP {
 }
 ```
 
-### **Pattern 2: Complex Workflow Orchestrator**
+### **Patrón 2: Orquestador de Flujo Complejo**
 
-**Cuándo usar:** Multi-step processes que involucran múltiples systems
-**Ejemplo:** Deployment automation
+**Cuándo usar:** Procesos multi-paso que involucran múltiples sistemas
+**Ejemplo:** Automatización de despliegue
 
 ```typescript
 class DeploymentMCP {
@@ -180,11 +180,11 @@ class DeploymentMCP {
       // Step 5: Notify team
       if (args.notify_channel) {
         await this.slack.sendMessage(args.notify_channel, {
-          text: `✅ Deployment successful: ${args.repository}@${args.branch} to ${args.environment}`,
+          text: `✅ Despliegue exitoso: ${args.repository}@${args.branch} a ${args.environment}`,
           attachments: [{
             fields: [
-              { title: 'Build Time', value: buildResult.duration },
-              { title: 'Health Score', value: healthCheck.score }
+              { title: 'Tiempo de construcción', value: buildResult.duration },
+              { title: 'Puntuación de salud', value: healthCheck.score }
             ]
           }]
         });
@@ -201,7 +201,7 @@ class DeploymentMCP {
       // Notify failure
       if (args.notify_channel) {
         await this.slack.sendMessage(args.notify_channel, {
-          text: `❌ Deployment failed: ${error.message}`
+          text: `❌ Despliegue falló: ${error.message}`
         });
       }
 
@@ -215,10 +215,10 @@ class DeploymentMCP {
 }
 ```
 
-### **Pattern 3: Data Aggregation and Analysis**
+### **Patrón 3: Agregación y Análisis de Datos**
 
-**Cuándo usar:** Combining data from multiple sources for insights
-**Ejemplo:** Business intelligence MCP
+**Cuándo usar:** Combinando datos de múltiples fuentes para insights
+**Ejemplo:** MCP de inteligencia de negocio
 
 ```typescript
 class BusinessIntelligenceMCP {
@@ -282,9 +282,9 @@ class BusinessIntelligenceMCP {
 
 ## 🔐 **Seguridad Avanzada para MCPs**
 
-### **Authentication strategies:**
+### **Estrategias de autenticación:**
 
-**🔹 API Key Authentication (básico)**
+**🔹 Autenticación con clave API (básico)**
 ```typescript
 class SecureMCP {
   private validateApiKey(apiKey: string): boolean {
@@ -304,7 +304,7 @@ class SecureMCP {
 }
 ```
 
-**🔹 JWT Authentication (intermedio)**
+**🔹 Autenticación JWT (intermedio)**
 ```typescript
 import jwt from 'jsonwebtoken';
 
@@ -383,7 +383,7 @@ class OAuth2SecuredMCP {
 }
 ```
 
-### **Rate limiting y abuse prevention:**
+### **Limitación de velocidad y prevención de abuso:**
 
 ```typescript
 class RateLimitedMCP {
@@ -431,9 +431,9 @@ class RateLimitedMCP {
 }
 ```
 
-## ⚡ **Performance Optimization**
+## ⚡ **Optimización de Rendimiento**
 
-### **Connection pooling y resource management:**
+### **Agrupación de conexiones y gestión de recursos:**
 
 ```typescript
 class OptimizedMCP {
@@ -560,9 +560,9 @@ class AsyncMCP {
 }
 ```
 
-## 🧪 **Testing Strategies para MCPs**
+## 🧪 **Estrategias de Pruebas para MCPs**
 
-### **Unit testing framework:**
+### **Marco de pruebas unitarias:**
 
 ```typescript
 // tests/company-api-mcp.test.ts
@@ -614,7 +614,7 @@ describe('CompanyAPIMCP', () => {
 });
 ```
 
-### **Integration testing:**
+### **Pruebas de integración:**
 
 ```typescript
 // tests/integration/mcp-integration.test.ts
@@ -656,7 +656,7 @@ describe('MCP Integration Tests', () => {
 });
 ```
 
-### **Load testing:**
+### **Pruebas de carga:**
 
 ```typescript
 // tests/performance/load-test.ts
@@ -695,7 +695,7 @@ async function runLoadTest() {
 }
 ```
 
-## 🚀 **Deployment y Monitoring**
+## 🚀 **Despliegue y Monitoreo**
 
 ### **CI/CD pipeline para MCPs:**
 
@@ -765,7 +765,7 @@ jobs:
             --namespace=production
 ```
 
-### **Monitoring y observability:**
+### **Monitoreo y observabilidad:**
 
 ```typescript
 // src/monitoring/metrics.ts
@@ -827,9 +827,9 @@ export class MCPHealthCheck {
 }
 ```
 
-## 🌐 **Ecosistemas MCP: Orquestación multiple**
+## 🌐 **Ecosistemas MCP: Orquestación múltiple**
 
-### **MCP orchestrator pattern:**
+### **Patrón de orquestador MCP:**
 
 ```typescript
 class MCPOrchestrator {
@@ -945,13 +945,13 @@ Has dominado MCPs avanzados y arquitecturas complejas. Has completado el nivel a
 
 ---
 
-## 💡 **Key Takeaways**
+## 💡 **Puntos Clave**
 
-- **Custom MCPs:** Build cuando ROI justifica investment (>$50K value/year)
-- **Security:** Multi-layer approach con auth, rate limiting, y auditing
-- **Performance:** Connection pooling + caching = 10x improvement
-- **Testing:** Unit + integration + load testing essential
-- **Deployment:** Automated CI/CD con health checks
-- **Orchestration:** Multiple MCPs trabajando together unlock new capabilities
+- **MCPs personalizados:** Construir cuando ROI justifica inversión (>€45K valor/año)
+- **Seguridad:** Enfoque multicapa con autenticación, limitación de velocidad y auditoría
+- **Rendimiento:** Agrupación de conexiones + caché = 10x mejora
+- **Pruebas:** Pruebas unitarias + integración + carga esenciales
+- **Despliegue:** CI/CD automatizado con verificaciones de salud
+- **Orquestación:** Múltiples MCPs trabajando juntos desbloquean nuevas capacidades
 
-*MCPs avanzados no son solo herramientas—son building blocks para crear ecosistemas de IA que se adapten específicamente a tu organización. La inversión en MCPs custom bien diseñados paga dividendos a largo plazo.*
+*Los MCPs avanzados no son solo herramientas—son bloques de construcción para crear ecosistemas de IA que se adapten específicamente a tu organización. La inversión en MCPs personalizados bien diseñados paga dividendos a largo plazo.*
