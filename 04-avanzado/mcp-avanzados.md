@@ -132,87 +132,42 @@ class CompanyAPIMCP {
 **Cuándo usar:** Procesos multi-paso que involucran múltiples sistemas
 **Ejemplo:** Automatización de despliegue
 
-```typescript
-class DeploymentMCP {
-  private github: GitHubClient;
-  private docker: DockerClient;
-  private kubernetes: KubernetesClient;
-  private slack: SlackClient;
+**Funcionalidades que ofrece:**
+```
+🚀 Desplegar Aplicación
+   ├─ Validar precondiciones
+   ├─ Construir y probar
+   ├─ Desplegar al entorno
+   ├─ Verificar salud del sistema
+   └─ Notificar al equipo
 
-  async handleToolCall(name: string, args: any) {
-    switch (name) {
-      case 'deploy_application':
-        return this.deployApplication(args);
+🔄 Rollback de Emergencia
+   ├─ Detectar fallo
+   ├─ Volver a versión anterior
+   └─ Confirmar estabilidad
 
-      case 'rollback_deployment':
-        return this.rollbackDeployment(args);
+📊 Estado del Despliegue
+   └─ Información en tiempo real
+```
 
-      case 'get_deployment_status':
-        return this.getDeploymentStatus(args);
-    }
-  }
+**Flujo de trabajo conceptual:**
+```
+📝 Desarrollador solicita despliegue
+    ↓
+🔍 MCP valida precondiciones
+    ↓ (si OK)
+🔨 Construye y ejecuta pruebas
+    ↓ (si éxito)
+🚀 Despliega al entorno objetivo
+    ↓
+🩺 Verifica salud del sistema
+    ↓
+📢 Notifica resultado al equipo
+```
 
-  private async deployApplication(args: {
-    repository: string;
-    branch: string;
-    environment: string;
-    notify_channel?: string;
-  }) {
-    const deployment = new DeploymentOrchestrator({
-      repository: args.repository,
-      branch: args.branch,
-      environment: args.environment
-    });
-
-    try {
-      // Step 1: Validate preconditions
-      await deployment.validatePreconditions();
-
-      // Step 2: Build and test
-      const buildResult = await deployment.buildAndTest();
-
-      // Step 3: Deploy to environment
-      const deployResult = await deployment.deployToEnvironment();
-
-      // Step 4: Run health checks
-      const healthCheck = await deployment.runHealthChecks();
-
-      // Step 5: Notify team
-      if (args.notify_channel) {
-        await this.slack.sendMessage(args.notify_channel, {
-          text: `✅ Despliegue exitoso: ${args.repository}@${args.branch} a ${args.environment}`,
-          attachments: [{
-            fields: [
-              { title: 'Tiempo de construcción', value: buildResult.duration },
-              { title: 'Puntuación de salud', value: healthCheck.score }
-            ]
-          }]
-        });
-      }
-
-      return {
-        success: true,
-        deployment_id: deployResult.id,
-        status: 'completed',
-        health_score: healthCheck.score
-      };
-
-    } catch (error) {
-      // Notify failure
-      if (args.notify_channel) {
-        await this.slack.sendMessage(args.notify_channel, {
-          text: `❌ Despliegue falló: ${error.message}`
-        });
-      }
-
-      return {
-        success: false,
-        error: error.message,
-        rollback_available: deployment.canRollback()
-      };
-    }
-  }
-}
+**Sistemas que coordina:** GitHub + Docker + Kubernetes + Slack
+**Tiempo promedio:** 5-15 minutos según complejidad
+**ROI:** Reduce tiempo manual de 45 min a 5 min (88% ahorro)
 ```
 
 ### **Patrón 3: Agregación y Análisis de Datos**
@@ -220,345 +175,207 @@ class DeploymentMCP {
 **Cuándo usar:** Combinando datos de múltiples fuentes para insights
 **Ejemplo:** MCP de inteligencia de negocio
 
-```typescript
-class BusinessIntelligenceMCP {
-  private analytics: AnalyticsClient;
-  private sales: SalesforceClient;
-  private support: ZendeskClient;
-  private finance: FinanceSystemClient;
-
-  async handleToolCall(name: string, args: any) {
-    switch (name) {
-      case 'generate_executive_report':
-        return this.generateExecutiveReport(args);
-
-      case 'analyze_customer_health':
-        return this.analyzeCustomerHealth(args);
-
-      case 'forecast_revenue':
-        return this.forecastRevenue(args);
-    }
-  }
-
-  private async generateExecutiveReport(args: {
-    period: string;
-    metrics: string[];
-  }) {
-    const data = await Promise.all([
-      this.analytics.getTrafficMetrics(args.period),
-      this.sales.getRevenueMetrics(args.period),
-      this.support.getSupportMetrics(args.period),
-      this.finance.getFinancialMetrics(args.period)
-    ]);
-
-    const [traffic, revenue, support, finance] = data;
-
-    const report = {
-      period: args.period,
-      summary: {
-        total_revenue: revenue.total,
-        new_customers: revenue.new_customers,
-        churn_rate: support.churn_rate,
-        support_satisfaction: support.satisfaction_score
-      },
-      trends: {
-        revenue_growth: this.calculateGrowth(revenue.total, revenue.previous_total),
-        traffic_growth: this.calculateGrowth(traffic.sessions, traffic.previous_sessions),
-        support_efficiency: this.calculateEfficiency(support.tickets_resolved, support.tickets_created)
-      },
-      recommendations: await this.generateRecommendations({
-        traffic, revenue, support, finance
-      })
-    };
-
-    return {
-      success: true,
-      report,
-      generated_at: new Date().toISOString()
-    };
-  }
-}
+**Fuentes de datos que unifica:**
 ```
+📊 Analytics Web ──┐
+                   ├─→ 📋 Informe Ejecutivo Unificado
+💰 Sistema CRM ────┤    ├─ Métricas consolidadas
+                   │    ├─ Tendencias cruzadas
+🎧 Soporte ────────┤    └─ Recomendaciones IA
+                   │
+💳 Finanzas ───────┘
+```
+
+**Flujo de análisis:**
+```
+🎯 Solicitud de informe ejecutivo
+    ↓
+🔄 Recopila datos de 4 sistemas en paralelo
+    ↓
+🧮 Correlaciona métricas entre sistemas
+    ↓
+📈 Identifica tendencias y anomalías
+    ↓
+🤖 Genera recomendaciones automáticas
+    ↓
+📄 Entrega informe unificado
+```
+
+**Valor de negocio:**
+- **Tiempo ahorrado:** De 4 horas manuales a 2 minutos automatizados
+- **Precisión:** Elimina errores de consolidación manual
+- **Frecuencia:** Permite informes diarios vs mensuales
+- **ROI:** €22/hora × 4 horas × 22 días = €1,936/mes ahorrados
 
 ## 🔐 **Seguridad Avanzada para MCPs**
 
-### **Estrategias de autenticación:**
+### **Estrategias de autenticación por contexto:**
 
-**🔹 Autenticación con clave API (básico)**
-```typescript
-class SecureMCP {
-  private validateApiKey(apiKey: string): boolean {
-    const validKeys = process.env.VALID_API_KEYS?.split(',') || [];
-    return validKeys.includes(apiKey);
-  }
-
-  async handleRequest(request: any, headers: any) {
-    const apiKey = headers['x-api-key'];
-
-    if (!this.validateApiKey(apiKey)) {
-      throw new Error('Invalid API key');
-    }
-
-    return this.processRequest(request);
-  }
-}
+**🔹 Autenticación básica (equipos pequeños)**
+```
+🔑 Clave API estática
+   ├─ Fácil implementación
+   ├─ Rotación manual
+   └─ ⚠️ Uso: <10 usuarios
 ```
 
-**🔹 Autenticación JWT (intermedio)**
-```typescript
-import jwt from 'jsonwebtoken';
-
-class JWTSecuredMCP {
-  private validateJWT(token: string): { valid: boolean; payload?: any } {
-    try {
-      const payload = jwt.verify(token, process.env.JWT_SECRET!);
-      return { valid: true, payload };
-    } catch (error) {
-      return { valid: false };
-    }
-  }
-
-  async handleRequest(request: any, headers: any) {
-    const authHeader = headers['authorization'];
-    const token = authHeader?.replace('Bearer ', '');
-
-    const { valid, payload } = this.validateJWT(token);
-
-    if (!valid) {
-      throw new Error('Invalid or expired token');
-    }
-
-    // Check permissions
-    if (!this.hasPermission(payload.role, request.tool)) {
-      throw new Error('Insufficient permissions');
-    }
-
-    return this.processRequest(request, payload);
-  }
-
-  private hasPermission(role: string, tool: string): boolean {
-    const permissions = {
-      'admin': ['*'],
-      'developer': ['read_code', 'deploy_staging', 'update_docs'],
-      'viewer': ['read_*']
-    };
-
-    const userPermissions = permissions[role] || [];
-
-    return userPermissions.some(permission =>
-      permission === '*' ||
-      permission === tool ||
-      (permission.endsWith('*') && tool.startsWith(permission.slice(0, -1)))
-    );
-  }
-}
+**🔹 Autenticación intermedia (equipos medianos)**
+```
+🎫 JSON Web Tokens (JWT)
+   ├─ Expiración automática
+   ├─ Roles y permisos
+   ├─ Sin estado del servidor
+   └─ ✅ Uso: 10-100 usuarios
 ```
 
-**🔹 OAuth2 + RBAC (avanzado)**
-```typescript
-class OAuth2SecuredMCP {
-  private oauth2Client: OAuth2Client;
+**🔹 Autenticación avanzada (empresarial)**
+```
+🏢 OAuth2 + Control de acceso basado en roles
+   ├─ Integración con SSO corporativo
+   ├─ Auditoría completa
+   ├─ Permisos granulares
+   └─ 🚀 Uso: 100+ usuarios
+```
 
-  async handleRequest(request: any, headers: any) {
-    const token = this.extractToken(headers);
-    const userInfo = await this.oauth2Client.getUserInfo(token);
+**Flujo de decisión de seguridad:**
+```
+¿Cuántos usuarios?
+   ├─ <10 → Clave API simple
+   ├─ 10-100 → JWT con roles
+   └─ 100+ → OAuth2 + RBAC
 
-    // Role-based access control
-    const permissions = await this.getRolePermissions(userInfo.role);
+¿Datos sensibles?
+   ├─ No → Autenticación básica
+   └─ Sí → Cifrado E2E + auditoría
 
-    if (!this.isActionAllowed(request.tool, permissions)) {
-      throw new Error(`Action ${request.tool} not allowed for role ${userInfo.role}`);
-    }
-
-    // Audit logging
-    await this.logAccess({
-      user: userInfo.email,
-      action: request.tool,
-      timestamp: new Date(),
-      ip: this.getClientIP(headers)
-    });
-
-    return this.processRequest(request, userInfo);
-  }
-}
+¿Cumplimiento regulatorio?
+   ├─ No → Estándar de industria
+   └─ Sí → Cumplimiento específico
 ```
 
 ### **Limitación de velocidad y prevención de abuso:**
 
-```typescript
-class RateLimitedMCP {
-  private rateLimiter: Map<string, { count: number; resetTime: number }> = new Map();
-
-  private checkRateLimit(identifier: string, limit: number, windowMs: number): boolean {
-    const now = Date.now();
-    const userLimit = this.rateLimiter.get(identifier);
-
-    if (!userLimit || now > userLimit.resetTime) {
-      // Reset window
-      this.rateLimiter.set(identifier, {
-        count: 1,
-        resetTime: now + windowMs
-      });
-      return true;
-    }
-
-    if (userLimit.count >= limit) {
-      return false; // Rate limit exceeded
-    }
-
-    userLimit.count++;
-    return true;
-  }
-
-  async handleRequest(request: any, userInfo: any) {
-    const identifier = userInfo.email || userInfo.apiKey;
-
-    // Different limits for different roles
-    const limits = {
-      'admin': { requests: 1000, window: 60000 }, // 1000/min
-      'developer': { requests: 100, window: 60000 }, // 100/min
-      'viewer': { requests: 50, window: 60000 } // 50/min
-    };
-
-    const userLimit = limits[userInfo.role] || limits['viewer'];
-
-    if (!this.checkRateLimit(identifier, userLimit.requests, userLimit.window)) {
-      throw new Error('Rate limit exceeded');
-    }
-
-    return this.processRequest(request);
-  }
-}
+**Estrategia escalonada por rol:**
 ```
+🔴 Administrador: 1,000 req/min
+   └─ Acceso completo para operaciones críticas
+
+🟡 Desarrollador: 100 req/min
+   └─ Uso normal de desarrollo y pruebas
+
+🟢 Consultor: 50 req/min
+   └─ Consultas básicas y reportes
+```
+
+**Flujo de control de velocidad:**
+```
+📥 Solicitud entrante
+    ↓
+🔍 Identificar usuario (email/API key)
+    ↓
+📊 Consultar límites por rol
+    ↓
+⏱️ Verificar ventana de tiempo
+    ↓ (si dentro del límite)
+✅ Procesar solicitud
+    ↓ (si excede límite)
+❌ Bloquear con error 429
+```
+
+**Beneficios de implementación:**
+- **Protección:** Previene ataques DDoS y abuso
+- **Estabilidad:** Mantiene rendimiento para todos los usuarios
+- **Costos:** Controla gastos de APIs externas
 
 ## ⚡ **Optimización de Rendimiento**
 
 ### **Agrupación de conexiones y gestión de recursos:**
 
-```typescript
-class OptimizedMCP {
-  private connectionPools: Map<string, ConnectionPool> = new Map();
-  private cache: LRUCache<string, any>;
+**Estrategias de optimización:**
 
-  constructor() {
-    this.cache = new LRUCache<string, any>({
-      max: 1000,
-      ttl: 300000 // 5 minutes
-    });
-  }
-
-  private getConnectionPool(service: string): ConnectionPool {
-    if (!this.connectionPools.has(service)) {
-      this.connectionPools.set(service, new ConnectionPool({
-        max: 10, // Maximum connections
-        min: 2,  // Minimum connections
-        idle: 30000, // Idle timeout
-        acquire: 60000 // Acquire timeout
-      }));
-    }
-    return this.connectionPools.get(service)!;
-  }
-
-  async executeQuery(service: string, query: string, params: any[]) {
-    // Check cache first
-    const cacheKey = `${service}:${this.hashQuery(query, params)}`;
-    const cached = this.cache.get(cacheKey);
-
-    if (cached) {
-      return cached;
-    }
-
-    // Execute with connection pool
-    const pool = this.getConnectionPool(service);
-    const connection = await pool.acquire();
-
-    try {
-      const result = await connection.query(query, params);
-
-      // Cache result if appropriate
-      if (this.isCacheable(query)) {
-        this.cache.set(cacheKey, result);
-      }
-
-      return result;
-    } finally {
-      pool.release(connection);
-    }
-  }
-}
+**🔹 Agrupación de conexiones**
+```
+📦 Pool de Conexiones
+   ├─ Máximo: 10 conexiones activas
+   ├─ Mínimo: 2 conexiones persistentes
+   ├─ Timeout inactivo: 30 segundos
+   └─ 📈 Mejora: 5x velocidad de respuesta
 ```
 
-### **Async processing y queues:**
-
-```typescript
-class AsyncMCP {
-  private taskQueue: Queue;
-  private workers: Worker[];
-
-  constructor() {
-    this.taskQueue = new Queue('mcp-tasks', {
-      redis: { host: 'localhost', port: 6379 }
-    });
-
-    // Start workers
-    this.workers = Array.from({ length: 4 }, () =>
-      new Worker(this.taskQueue, this.processTask.bind(this))
-    );
-  }
-
-  async handleLongRunningTask(request: any): Promise<{ taskId: string }> {
-    const taskId = this.generateTaskId();
-
-    // Queue the task for async processing
-    await this.taskQueue.add('process-request', {
-      taskId,
-      request,
-      timestamp: Date.now()
-    }, {
-      attempts: 3,
-      backoff: 'exponential',
-      delay: 1000
-    });
-
-    return { taskId };
-  }
-
-  async getTaskStatus(taskId: string) {
-    const job = await this.taskQueue.getJob(taskId);
-
-    if (!job) {
-      return { status: 'not_found' };
-    }
-
-    return {
-      status: await job.getState(),
-      progress: job.progress(),
-      result: job.returnvalue,
-      error: job.failedReason
-    };
-  }
-
-  private async processTask(job: any) {
-    const { taskId, request } = job.data;
-
-    try {
-      // Update progress
-      job.progress(0);
-
-      // Process request
-      const result = await this.executeComplexOperation(request, (progress) => {
-        job.progress(progress);
-      });
-
-      job.progress(100);
-      return result;
-
-    } catch (error) {
-      throw new Error(`Task ${taskId} failed: ${error.message}`);
-    }
-  }
-}
+**🔹 Caché inteligente**
 ```
+💾 Cache LRU (Menos Usado Recientemente)
+   ├─ Tamaño: 1,000 entradas
+   ├─ TTL: 5 minutos
+   ├─ Hit ratio objetivo: >80%
+   └─ 📉 Reduce latencia: 50ms → 5ms
+```
+
+**Flujo de consulta optimizada:**
+```
+📥 Consulta entrante
+    ↓
+🔍 Verificar caché primero
+    ↓ (si hit)
+⚡ Respuesta inmediata (5ms)
+    ↓ (si miss)
+🏊 Obtener conexión del pool
+    ↓
+🗄️ Ejecutar consulta en BD
+    ↓
+💾 Almacenar en caché
+    ↓
+📤 Devolver resultado (50ms)
+```
+
+**Impacto en rendimiento:**
+- **Latencia:** 90% reducción con caché
+- **Throughput:** 5x más consultas concurrentes
+- **Recursos:** 60% menos conexiones desperdiciadas
+
+### **Procesamiento asíncrono y colas:**
+
+**Arquitectura de colas de trabajo:**
+```
+📝 Tareas Largas (>30 segundos)
+    ↓
+📥 Cola de Trabajo (Redis)
+    ↓
+👷 Pool de Workers (4 procesos)
+    ↓
+📊 Seguimiento de Progreso
+    ↓
+📋 Resultado Final
+```
+
+**Casos de uso típicos:**
+- **Análisis de grandes conjuntos de datos** (5-30 min)
+- **Generación de informes complejos** (2-15 min)
+- **Procesamiento de imágenes/vídeos** (1-10 min)
+- **Migraciones de datos** (10-120 min)
+
+**Flujo de trabajo asíncrono:**
+```
+🚀 Usuario solicita tarea pesada
+    ↓
+🎫 MCP genera ID de tarea único
+    ↓
+📥 Encola tarea en Redis
+    ↓
+⚡ Respuesta inmediata con ID
+    ↓
+👷 Worker procesa en background
+    ↓
+📊 Usuario consulta progreso (0-100%)
+    ↓
+✅ Resultado disponible cuando termine
+```
+
+**Beneficios del patrón asíncrono:**
+- **Respuesta inmediata:** Usuario no espera bloqueado
+- **Resistencia a fallos:** Reintentos automáticos (3x)
+- **Escalabilidad:** Más workers = más throughput
+- **Transparencia:** Progreso en tiempo real
 
 ## 🧪 **Estrategias de Pruebas para MCPs**
 

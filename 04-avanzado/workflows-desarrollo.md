@@ -1,6 +1,6 @@
-# 🔄 Workflows de Desarrollo con IA
+# 🔄 Flujos de Desarrollo con IA
 
-> **Transformando tu proceso diario.** Has dominado las herramientas. Ahora vamos a integrar IA en cada fase del desarrollo: Git workflows inteligentes, CI/CD automatizado, debugging asistido por IA y pair programming que realmente funciona.
+> **Transformando tu proceso diario.** Has dominado las herramientas. Ahora vamos a integrar IA en cada fase del desarrollo: flujos de Git inteligentes, CI/CD automatizado, depuración asistida por IA y programación en pareja que realmente funciona.
 
 ## 🎯 ¿Qué aprenderás aquí?
 
@@ -56,23 +56,23 @@
 # chore: mantenimiento
 ```
 
-**Gancho de pre-commit con IA:**
-```bash
-#!/bin/sh
-# .git/hooks/prepare-commit-msg
+**Automatización de mensajes de commit:**
 
-# Si el mensaje está vacío, usar IA para generarlo
-if [ -z "$(cat $1 | grep -v '^#')" ]; then
-    # Obtener diff
-    DIFF=$(git diff --cached)
-
-    # Usar IA para generar mensaje de commit
-    AI_MESSAGE=$(echo "$DIFF" | ai-commit-helper)
-
-    # Escribir al archivo de commit
-    echo "$AI_MESSAGE" > $1
-fi
+**Flujo conceptual:**
 ```
+📝 Desarrollador hace commit sin mensaje
+    ↓
+🤖 IA analiza los cambios del código
+    ↓
+✍️ Genera mensaje descriptivo automáticamente
+    ↓
+✅ Commit creado con contexto claro
+```
+
+**Herramientas que lo hacen posible:**
+- Ganchos de Git que interceptan commits vacíos
+- APIs de IA que analizan diferencias de código
+- Plantillas que estructuran mensajes consistentes
 
 **Ejemplo de herramientas existentes:**
 - **IA para Commits Convencionales:** Genera mensajes siguiendo estándares
@@ -81,31 +81,27 @@ fi
 
 ### **Patrón 2: Revisión de Código Automatizada**
 
-**Lista de verificación de pre-revisión automatizada:**
+**Revisión automática antes del merge:**
 
-```yaml
-# .github/workflows/ai-review.yml
-name: AI Code Review
-on:
-  pull_request:
-    types: [opened, synchronize]
-
-jobs:
-  ai-review:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: AI Code Analysis
-        uses: ai-reviewer-action@v1
-        with:
-          focus: |
-            - Vulnerabilidades de seguridad
-            - Problemas de rendimiento
-            - Consistencia de estilo de código
-            - Errores de lógica
-            - Pruebas faltantes
-          output: comment
+**Qué revisa la IA automáticamente:**
 ```
+🔒 Seguridad
+   ├─ Vulnerabilidades conocidas
+   ├─ Exposición de datos sensibles
+   └─ Inyecciones de código
+
+⚡ Rendimiento
+   ├─ Consultas lentas
+   ├─ Bucles ineficientes
+   └─ Uso excesivo de memoria
+
+📏 Calidad
+   ├─ Estilo consistente
+   ├─ Mejores prácticas
+   └─ Cobertura de pruebas
+```
+
+**Resultado:** Comentarios automáticos en el Pull Request con sugerencias específicas
 
 **Beneficios medibles:**
 - 70% reducción en tiempo de revisión
@@ -185,28 +181,27 @@ jobs:
 
 ### **Generación Automática de Pruebas**
 
-**Para nuevas funciones:**
-```python
-# test-generator.py
-def generate_tests_for_function(function_code, context):
-    prompt = f"""
-    Genera pruebas comprehensivas para esta función:
+**Proceso de generación automática:**
 
-    {function_code}
-
-    Contexto del proyecto: {context}
-
-    Incluye:
-    - Pruebas de camino feliz
-    - Casos límite
-    - Manejo de errores
-    - Consideraciones de rendimiento
-
-    Marco de trabajo: pytest
-    """
-
-    return ai_client.generate(prompt)
 ```
+👨‍💻 Desarrollador escribe función nueva
+    ↓
+🤖 IA analiza el código y contexto
+    ↓
+🧪 Genera automáticamente:
+   ├─ Pruebas básicas (camino feliz)
+   ├─ Casos extremos y límite
+   ├─ Validación de errores
+   └─ Pruebas de rendimiento
+    ↓
+📊 Cobertura del 90%+ sin esfuerzo manual
+```
+
+**Tipos de pruebas que genera:**
+- **Funcionalidad básica:** ¿Hace lo que debe hacer?
+- **Casos límite:** ¿Qué pasa con valores extremos?
+- **Manejo de errores:** ¿Responde bien a entradas inválidas?
+- **Rendimiento:** ¿Funciona con datos grandes?
 
 **Métricas de efectividad:**
 - 90% cobertura de código automática
@@ -215,27 +210,30 @@ def generate_tests_for_function(function_code, context):
 
 ### **Evaluación de Riesgo de Despliegue**
 
-**IA evalúa riesgo antes del despliegue:**
+**Sistema de evaluación de riesgo inteligente:**
 
-```python
-def assess_deployment_risk(changes, metrics):
-    risk_factors = {
-        'database_changes': has_db_migrations(changes),
-        'api_breaking_changes': has_breaking_changes(changes),
-        'dependency_updates': has_dep_updates(changes),
-        'critical_path_changes': affects_critical_path(changes),
-        'recent_incident_rate': metrics.get('incident_rate', 0)
-    }
-
-    risk_score = ai_risk_model.predict(risk_factors)
-
-    if risk_score > 0.8:
-        return "alto_riesgo", "Aprobación manual requerida"
-    elif risk_score > 0.5:
-        return "riesgo_medio", "Pruebas adicionales recomendadas"
-    else:
-        return "bajo_riesgo", "Seguro para desplegar"
+**Factores que analiza la IA:**
 ```
+🔍 Cambios en la base de datos
+   └─ ¿Hay migraciones? ¿Son reversibles?
+
+💥 Cambios que rompen compatibilidad
+   └─ ¿Afecta APIs públicas? ¿Clientes externos?
+
+📦 Actualizaciones de dependencias
+   └─ ¿Versiones mayores? ¿Vulnerabilidades conocidas?
+
+🎯 Rutas críticas del sistema
+   └─ ¿Afecta pagos? ¿Autenticación? ¿Datos?
+
+📊 Historial reciente
+   └─ ¿Hubo incidentes últimamente?
+```
+
+**Resultado automático:**
+- 🟢 **Bajo riesgo:** Despliegue automático
+- 🟡 **Riesgo medio:** Pruebas adicionales
+- 🔴 **Alto riesgo:** Aprobación manual obligatoria
 
 ## 🐛 **Depuración Inteligente**
 

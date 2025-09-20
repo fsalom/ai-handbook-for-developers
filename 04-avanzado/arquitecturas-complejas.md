@@ -87,24 +87,27 @@ Respuesta al Cliente
 
 ### **Sistemas de memoria para agentes:**
 
-**🧠 Arquitectura de Memoria Compartida:**
-```python
-class AgentMemorySystem:
-    def __init__(self):
-        self.short_term = {}  # Session context
-        self.long_term = VectorStore()  # Persistent knowledge
-        self.working_memory = {}  # Current task context
+**🧠 Sistema de Memoria Inteligente:**
 
-    def share_context(self, from_agent, to_agent, context):
-        """Permite a agentes compartir contexto relevante"""
-        filtered_context = self.filter_relevant_context(context, to_agent)
-        self.working_memory[to_agent] = filtered_context
-
-    def learn_from_interaction(self, interaction_data):
-        """Sistema aprende de interacciones exitosas"""
-        if interaction_data['success_rating'] > 0.8:
-            self.long_term.store(interaction_data['pattern'])
+**Tipos de memoria en agentes:**
 ```
+📋 Memoria a Corto Plazo
+   └─ Contexto de la conversación actual
+   └─ Tareas inmediatas
+
+🧠 Memoria de Trabajo
+   └─ Información relevante para la tarea actual
+   └─ Datos compartidos entre agentes
+
+💾 Memoria a Largo Plazo
+   └─ Patrones aprendidos de interacciones exitosas
+   └─ Conocimiento persistente del dominio
+```
+
+**Cómo colaboran los agentes:**
+- **Comparten contexto relevante** entre sí automáticamente
+- **Aprenden de experiencias exitosas** para mejorar futuras interacciones
+- **Mantienen coherencia** a través de memoria compartida
 
 ## 🎭 **Integración Multi-modal: Más allá del texto**
 
@@ -207,37 +210,43 @@ Coordinated response generation
 
 ### **Estrategias de orquestación de modelos:**
 
-**🎯 Estrategia 1: Enrutamiento basado en tareas**
-```python
-class ModelOrchestrator:
-    def route_request(self, request):
-        if self.is_simple_task(request):
-            return "gpt-3.5-turbo"  # Fast + cheap
-        elif self.needs_reasoning(request):
-            return "gpt-4"  # Best reasoning
-        elif self.is_code_task(request):
-            return "claude-3-sonnet"  # Great at code
-        elif self.needs_vision(request):
-            return "gpt-4-vision"  # Multi-modal
-        else:
-            return "gpt-4"  # Default
+**🎯 Estrategia 1: Enrutamiento Inteligente por Tarea**
+
+**Lógica de selección automática:**
+```
+📝 Tarea Simple (traducir, resumir)
+   └─ Modelo rápido y económico (GPT-3.5)
+
+🧠 Razonamiento Complejo (análisis, estrategia)
+   └─ Modelo avanzado (GPT-4)
+
+💻 Programación (código, debug)
+   └─ Modelo especializado (Claude-3)
+
+👁️ Análisis Visual (imágenes, gráficos)
+   └─ Modelo multi-modal (GPT-4-Vision)
 ```
 
-**🎯 Strategy 2: Ensemble approaches**
-```python
-class EnsembleOrchestrator:
-    def generate_response(self, prompt):
-        # Get responses from multiple models
-        responses = {
-            'gpt4': gpt4_client.generate(prompt),
-            'claude': claude_client.generate(prompt),
-            'gemini': gemini_client.generate(prompt)
-        }
+**Beneficio:** Cada tarea usa el modelo óptimo en costo y calidad
 
-        # Use another model to select best response
-        best_response = selector_model.choose_best(responses)
-        return best_response
+**🎯 Estrategia 2: Enfoque de Conjunto (Ensemble)**
+
+**Proceso de consenso entre modelos:**
 ```
+🤖 Mismo prompt a 3 modelos diferentes
+   ├─ GPT-4: Respuesta A
+   ├─ Claude: Respuesta B
+   └─ Gemini: Respuesta C
+
+🧠 IA Selector evalúa las 3 respuestas
+   ├─ Analiza calidad y coherencia
+   ├─ Detecta información única valiosa
+   └─ Selecciona la mejor respuesta
+
+✨ Resultado: Mayor precisión que un solo modelo
+```
+
+**Cuándo usar:** Tareas críticas donde la precisión es fundamental
 
 **🎯 Strategy 3: Pipeline orchestration**
 ```python
