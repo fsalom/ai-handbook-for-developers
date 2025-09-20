@@ -43,7 +43,7 @@
 - **UX superior:** Respuesta inmediata vs espera bloqueante
 - **Reducción de costos:** 60% menos abandonos de chat
 - **Eficiencia:** Streaming reduce percepción de latencia
-```
+
 
 **🔹 Patrón 2: Componente de Revisión de Código con IA**
 
