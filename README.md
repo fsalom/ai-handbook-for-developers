@@ -34,10 +34,10 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 > *"Integrando IA en tu código"*
 
 - **[3. IA en el Desarrollo Diario](./02-junior/ia-desarrollo-diario.md)** ⚡
-  - ✅ **Ventajas reales**: Productividad, debugging, documentación
+  - ✅ **Ventajas reales**: Productividad, depuración, documentación
   - ⚠️ **Peligros**: Alucinaciones, dependencia, bias
   - 🎯 **Buenas prácticas**: Cuándo usar y cuándo NO
-  - 💼 **Casos reales**: Code review, testing, refactoring
+  - 💼 **Casos reales**: Revisión de código, pruebas, refactorización
 
 - **[4. Prompt Engineering Básico](./02-junior/prompt-engineering-basico.md)**
   - Anatomía de un buen prompt
@@ -74,13 +74,13 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
   - RAG (Retrieval Augmented Generation)
 
 ### 🟠 **Nivel 4: Desarrollador Avanzado**
-> *"Workflows profesionales"*
+> *"Flujos de trabajo profesionales"*
 
-- **[10. Workflows de Desarrollo con IA](./04-avanzado/workflows-desarrollo.md)** 🔄
-  - **Git + IA**: Commits automáticos, code review
-  - **CI/CD con IA**: Testing, documentación
-  - **Debugging inteligente**: Análisis de logs
-  - **Pair programming con IA**: Mejores prácticas
+- **[10. Flujos de Desarrollo con IA](./04-avanzado/workflows-desarrollo.md)** 🔄
+  - **Git + IA**: Commits automáticos, revisión de código
+  - **CI/CD con IA**: Pruebas, documentación
+  - **Depuración inteligente**: Análisis de logs
+  - **Programación en pareja con IA**: Mejores prácticas
 
 - **[11. Arquitecturas Complejas](./04-avanzado/arquitecturas-complejas.md)**
   - Agentes de IA
@@ -88,45 +88,45 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
   - Fine-tuning básico
 
 - **[12. MCPs Avanzados](./04-avanzado/mcp-avanzados.md)** 🛠️
-  - MCPs custom para tu stack
-  - Seguridad y performance
-  - Testing de MCPs
+  - MCPs personalizados para tu pila tecnológica
+  - Seguridad y rendimiento
+  - Pruebas de MCPs
 
 ### 🔴 **Nivel 5: Experto/Pro**
 > *"Implementación en producción"*
 
-- **[13. Casos de Uso por Stack](./05-experto/casos-uso-stack.md)**
-  - **Frontend**: Components, testing, a11y
-  - **Backend**: API design, DB optimization
-  - **DevOps**: IaC, monitoring, deployment
-  - **Mobile**: Cross-platform, performance
+- **[13. Casos de Uso por Pila Tecnológica](./05-experto/casos-uso-stack.md)**
+  - **Frontend**: Componentes, pruebas, a11y
+  - **Backend**: Diseño API, optimización BD
+  - **DevOps**: IaC, monitoreo, despliegue
+  - **Móvil**: Multiplataforma, rendimiento
 
-- **[14. Optimización y Performance](./05-experto/optimizacion-performance.md)**
-  - Caching strategies
-  - Cost management
-  - Rate limiting
+- **[14. Optimización y Rendimiento](./05-experto/optimizacion-performance.md)**
+  - Estrategias de caché
+  - Gestión de costos
+  - Limitación de velocidad
 
-- **[15. Deployment y Producción](./05-experto/deployment-produccion.md)**
-  - Monitoring en producción
-  - A/B testing con prompts
-  - Seguridad y compliance
+- **[15. Despliegue y Producción](./05-experto/deployment-produccion.md)**
+  - Monitoreo en producción
+  - Pruebas A/B con prompts
+  - Seguridad y cumplimiento normativo
 
 - **[16. Tendencias y Futuro](./05-experto/tendencias-futuro.md)**
   - Nuevos modelos
-  - Best practices del industry
+  - Mejores prácticas de la industria
 
 ## 🛡️ **Secciones Especiales**
 
 ### 📋 **Guías Prácticas**
-- **[🛡️ Guía de Seguridad](./guias-especiales/seguridad.md)**: Prompt injection, data leakage, compliance
-- **[💰 Gestión de Costos](./guias-especiales/gestion-costos.md)**: Optimización, monitoring, budgeting
+- **[🛡️ Guía de Seguridad](./guias-especiales/seguridad.md)**: Inyección de prompts, filtración de datos, cumplimiento normativo
+- **[💰 Gestión de Costos](./guias-especiales/gestion-costos.md)**: Optimización, monitoreo, presupuesto
 - **[📊 Métricas y Analytics](./guias-especiales/metricas-analytics.md)**: Midiendo el impacto de IA
 - **[🧰 Toolbox](./guias-especiales/toolbox.md)**: Herramientas, MCPs y recursos curados
 
 ### 📁 **Recursos Adicionales**
 - **[📖 Glosario](./recursos/glosario.md)**: Términos técnicos explicados
 - **[🔗 Enlaces útiles](./recursos/enlaces-utiles.md)**: APIs, documentación, comunidades
-- **[📝 Templates](./templates/)**: Prompts, código, configuraciones
+- **[📝 Plantillas](./templates/)**: Prompts, código, configuraciones
 - **[🧪 Ejemplos](./ejemplos/)**: Proyectos completos y demos
 
 ## 🚀 **Inicio Rápido**
@@ -143,7 +143,7 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 
 ### Para equipos técnicos:
 ```bash
-👥 Implementación en equipo → 04-avanzado/workflows-desarrollo.md
+👥 Implementación en equipo → 04-avanzado/flujos-desarrollo.md
 ```
 
 ## 💡 **Filosofía de esta guía**
@@ -160,7 +160,7 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 
 ### ⚡ **Productividad inmediata**
 - Técnicas que puedes usar hoy mismo
-- Mejoras medibles en tu workflow
+- Mejoras medibles en tu flujo de trabajo
 - ROI claro en tiempo y calidad
 
 ## 🤝 **Contribuir**
@@ -172,20 +172,21 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 - 📝 **Contribuye contenido**: Lee [CONTRIBUTING.md](CONTRIBUTING.md)
 - ⭐ **Comparte**: Ayuda a otros desarrolladores
 
-## 📈 **Roadmap**
+## 📈 **Hoja de Ruta**
 
-### Q1 2024
-- [ ] Niveles 1-3 completos
-- [ ] Ejemplos básicos de MCPs
-- [ ] Guía de seguridad
+### ✅ Completado (2024)
+- [x] Niveles 1-5 completos
+- [x] Casos de uso avanzados
+- [x] Guías conceptuales y ejemplos
+- [x] Principios de desarrollo español
 
-### Q2 2024
-- [ ] Niveles 4-5 completos
-- [ ] Casos de uso avanzados
-- [ ] Templates y herramientas
+### 🔄 En Progreso (2025)
+- [ ] Guías especiales (seguridad, costos, métricas)
+- [ ] Plantillas y herramientas
+- [ ] Recursos adicionales
 
-### Futuro
-- [ ] Workshops interactivos
+### 🔮 Futuro
+- [ ] Talleres interactivos
 - [ ] Certificaciones
 - [ ] Comunidad activa
 

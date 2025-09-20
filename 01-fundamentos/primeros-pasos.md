@@ -95,7 +95,7 @@ explicativos y un ejemplo de uso.
 con ejemplos de cuándo usar cada uno"
 ```
 
-### **2. Debugging** 🐛
+### **2. Depuración** 🐛
 ```
 "Este código Python me da el error [error específico].
 ¿Puedes identificar el problema y sugerir una solución?
@@ -103,10 +103,10 @@ con ejemplos de cuándo usar cada uno"
 [código aquí]
 ```
 
-### **3. Code review** 👀
+### **3. Revisión de código** 👀
 ```
-"¿Puedes revisar este función y sugerir mejoras en términos de
-performance, legibilidad y buenas prácticas?
+"¿Puedes revisar esta función y sugerir mejoras en términos de
+rendimiento, legibilidad y buenas prácticas?
 
 [código aquí]
 ```
