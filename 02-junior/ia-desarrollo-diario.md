@@ -164,66 +164,93 @@
 - 🎯 **Entiende antes de usar:** Nunca copies código sin comprenderlo
 - 🎯 **Practica sin IA:** Dedica tiempo a codear sin asistencia
 
-### **3. Bias en soluciones** ⚖️
+### **3. Sesgo en soluciones** ⚖️
 
-**Problema:**
-```python
-# IA puede sugerir siempre las mismas librerías/patrones
-# Ejemplo: Siempre recomienda pandas, nunca alternativas
-import pandas as pd  # ¿Siempre es la mejor opción?
+**Problema del sesgo tecnológico:**
+```
+🤖 IA tiende a recomendar siempre:
+   ├─ Las mismas librerías populares
+   ├─ Patrones que vio más frecuentemente
+   ├─ Soluciones "mainstream" vs específicas
+   └─ Frameworks conocidos vs alternativas
+
+📊 Ejemplos de sesgo común:
+   ├─ Python: Siempre pandas, nunca Polars/Dask
+   ├─ JavaScript: Siempre React, rara vez Svelte
+   ├─ Datos: Siempre SQL, nunca NoSQL apropiado
+   └─ Mobile: Siempre Flutter, nunca nativo específico
 ```
 
-**Solución:**
-- 🔍 **Pregunta por alternativas:** "¿Qué otras opciones existen?"
-- 🔍 **Cuestiona las sugerencias:** "¿Por qué esta librería vs X?"
+**Estrategia anti-sesgo:**
+```
+🎯 Prompts que rompen el sesgo:
+   ├─ "¿Qué alternativas a [X] existen y cuándo usarlas?"
+   ├─ "Compara [librería popular] vs alternativas menos conocidas"
+   ├─ "¿Cuándo NO usar [herramienta recomendada]?"
+   └─ "Dame 3 enfoques diferentes para resolver esto"
+```
 
 ### **4. Problemas de seguridad** 🛡️
 
-**Riesgos:**
+**Vulnerabilidades comunes generadas por IA:**
+```
+🚨 Tipos de problemas de seguridad frecuentes:
+   ├─ Inyección SQL sin preparar statements
+   ├─ Validación de entrada insuficiente
+   ├─ Almacenamiento inseguro de datos sensibles
+   ├─ Autenticación/autorización débil
+   ├─ Exposición de información confidencial
+   └─ Manejo inadecuado de errores
 
-**PHP:**
-```php
-// IA puede generar código inseguro
-public function getUser($id) {
-    $query = "SELECT * FROM users WHERE id = " . $id;
-    // ❌ SQL Injection vulnerability
-    return $this->db->query($query);
-}
+💥 Contextos más peligrosos:
+   ├─ PHP: Consultas SQL dinámicas
+   ├─ JavaScript: Validación solo del lado cliente
+   ├─ Mobile: Datos sensibles en almacenamiento local
+   ├─ APIs: Endpoints sin autenticación
+   └─ Python: Deserialización no validada
 ```
 
-**Flutter/Dart:**
-```dart
-// IA puede generar validación insegura
-class AuthService {
-  bool validateToken(String token) {
-    return token.isNotEmpty; // ❌ Validación muy básica
-  }
-}
+**Protocolo de seguridad para código IA:**
 ```
+🛡️ Verificación obligatoria:
+   ├─ ✅ "¿Este código es seguro para producción?"
+   ├─ ✅ "¿Qué vulnerabilidades podría tener?"
+   ├─ ✅ "¿Cumple con OWASP Top 10?"
+   └─ ✅ "¿Qué validaciones adicionales necesita?"
 
-**iOS/Swift:**
-```swift
-// IA puede generar manejo inseguro de datos
-func storeUserData(_ data: String) {
-    UserDefaults.standard.set(data, forKey: "sensitive_data")
-    // ❌ Datos sensibles sin encriptar
-}
+🔧 Herramientas de validación:
+   ├─ Análisis estático (SonarQube, CodeQL)
+   ├─ Linters de seguridad específicos
+   ├─ Code review humano obligatorio
+   └─ Testing de penetración automatizado
 ```
-
-**Prevención:**
-- 🛡️ **Siempre pregunta por seguridad:** "¿Es este código seguro?"
-- 🛡️ **Haz security review** de código generado por IA
-- 🛡️ **Usa herramientas de análisis** estático
 
 ### **5. Código no optimizado** 🐌
 
-**Problema:**
-```python
-# IA puede generar código funcional pero ineficiente
-for user in users:
-    for order in orders:  # ❌ O(n²) cuando podría ser O(n)
-        if order.user_id == user.id:
-            # process...
+**Problema de rendimiento:**
+```
+🐌 IA prioriza funcionalidad sobre optimización:
+   ├─ Genera algoritmos O(n²) cuando existe O(n)
+   ├─ Usa bucles anidados innecesarios
+   ├─ No considera índices de base de datos
+   ├─ Implementa soluciones "fuerza bruta"
+   └─ Ignora patrones de optimización específicos
+
+📊 Ejemplos comunes de ineficiencia:
+   ├─ Bucles anidados para relacionar datos
+   ├─ Consultas N+1 en bases de datos
+   ├─ Carga de datos completos en memoria
+   ├─ Procesamiento secuencial vs paralelo
+   └─ Re-cálculo de valores constantes
+```
+
+**Estrategia de optimización:**
+```
+⚡ Prompts orientados a rendimiento:
+   ├─ "¿Cuál es la complejidad algorítmica de esto?"
+   ├─ "¿Cómo optimizar esto para 10M de registros?"
+   ├─ "¿Existe una solución más eficiente?"
+   └─ "¿Qué cuellos de botella podría tener?"
 ```
 
 ## 🎯 **Cuándo usar IA (y cuándo NO)**
