@@ -121,6 +121,7 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 - **[🛡️ Guía de Seguridad](./guias-especiales/seguridad.md)**: Inyección de prompts, filtración de datos, cumplimiento normativo
 - **[💰 Gestión de Costos](./guias-especiales/gestion-costos.md)**: Optimización, monitoreo, presupuesto
 - **[📊 Métricas y Analytics](./guias-especiales/metricas-analytics.md)**: Midiendo el impacto de IA
+- **[🔧 Estandarización en Equipos](./guias-especiales/estandarizacion-equipos.md)**: De caos a orden en tu equipo de desarrollo
 - **[🧰 Toolbox](./guias-especiales/toolbox.md)**: Herramientas, MCPs y recursos curados
 
 ### 📁 **Recursos Adicionales**
@@ -143,7 +144,12 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 
 ### Para equipos técnicos:
 ```bash
-👥 Implementación en equipo → 04-avanzado/flujos-desarrollo.md
+👥 Implementación en equipo → 04-avanzado/workflows-desarrollo.md
+```
+
+### Para estandarización organizacional:
+```bash
+🔧 De caos a orden → guias-especiales/estandarizacion-equipos.md
 ```
 
 ## 💡 **Filosofía de esta guía**
@@ -179,11 +185,13 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 - [x] Casos de uso avanzados
 - [x] Guías conceptuales y ejemplos
 - [x] Principios de desarrollo español
+- [x] Guías especiales (seguridad, costos, métricas, estandarización)
+- [x] Recursos adicionales (glosario, enlaces)
 
 ### 🔄 En Progreso (2025)
-- [ ] Guías especiales (seguridad, costos, métricas)
-- [ ] Plantillas y herramientas
-- [ ] Recursos adicionales
+- [ ] Plantillas y herramientas prácticas
+- [ ] Templates de configuración
+- [ ] Ejemplos de código complementarios
 
 ### 🔮 Futuro
 - [ ] Talleres interactivos
