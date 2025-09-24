@@ -122,6 +122,7 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 - **[💰 Gestión de Costos](./guias-especiales/gestion-costos.md)**: Optimización, monitoreo, presupuesto
 - **[📊 Métricas y Analytics](./guias-especiales/metricas-analytics.md)**: Midiendo el impacto de IA
 - **[🔧 Estandarización en Equipos](./guias-especiales/estandarizacion-equipos.md)**: De caos a orden en tu equipo de desarrollo
+- **[🧠 Sistemas de IA y Paradigma](./guias-especiales/sistemas-ia-paradigma.md)**: El nuevo paradigma de desarrollo con IA
 - **[🧰 Toolbox](./guias-especiales/toolbox.md)**: Herramientas, MCPs y recursos curados
 
 ### 📁 **Recursos Adicionales**
@@ -150,6 +151,11 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 ### Para estandarización organizacional:
 ```bash
 🔧 De caos a orden → guias-especiales/estandarizacion-equipos.md
+```
+
+### Para arquitectos y tech leads:
+```bash
+🧠 Sistemas IA y paradigma → guias-especiales/sistemas-ia-paradigma.md
 ```
 
 ## 💡 **Filosofía de esta guía**
