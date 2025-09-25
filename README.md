@@ -123,6 +123,7 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 - **[📊 Métricas y Analytics](./guias-especiales/metricas-analytics.md)**: Midiendo el impacto de IA
 - **[🔧 Estandarización en Equipos](./guias-especiales/estandarizacion-equipos.md)**: De caos a orden en tu equipo de desarrollo
 - **[🧠 Sistemas de IA y Paradigma](./guias-especiales/sistemas-ia-paradigma.md)**: El nuevo paradigma de desarrollo con IA
+- **[🏗️ Arquitecturas IA Avanzadas](./guias-especiales/arquitecturas-ia-avanzadas.md)**: Patrones para sistemas complejos
 - **[🧰 Toolbox](./guias-especiales/toolbox.md)**: Herramientas, MCPs y recursos curados
 
 ### 📁 **Recursos Adicionales**
@@ -156,6 +157,11 @@ La IA está transformando el desarrollo de software, pero muchos desarrolladores
 ### Para arquitectos y tech leads:
 ```bash
 🧠 Sistemas IA y paradigma → guias-especiales/sistemas-ia-paradigma.md
+```
+
+### Para sistemas IA complejos:
+```bash
+🏗️ Arquitecturas avanzadas → guias-especiales/arquitecturas-ia-avanzadas.md
 ```
 
 ## 💡 **Filosofía de esta guía**
